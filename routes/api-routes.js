@@ -12,10 +12,16 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-  // GET route for getting all of the posts
-  app.get("/api/posts/", function (req, res) {
+  // GET route for getting all of the cards, limited to x on the left side.
+  app.get("/api/posts/left/", function (req, res) {
     db.Mtgcard.findAll({limit:20})
-      // console.log(db.MTGCard)
+      .then(function (dbPost) {
+        res.json(dbPost);
+      });
+  });
+
+  app.get("/api/posts/right/", function (req, res) {
+    db.Userdeck.findAll({limit:20})
       .then(function (dbPost) {
         res.json(dbPost);
       });

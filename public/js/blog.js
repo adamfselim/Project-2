@@ -1,129 +1,63 @@
-$(document).ready(function() {
-  // blogContainer holds all of our posts
-  var blogContainer = $(".blog-container");
-  var postCategorySelect = $("#category");
-  // Click events for the edit and delete buttons
-  $(document).on("click", "button.delete", handlePostDelete);
-  $(document).on("click", "button.edit", handlePostEdit);
+$(document).ready(function () {
+  // rightContainer holds all of our posts
+  let rightContainer = $("#rightContainer");
+  let leftContainer = $("#leftContainer");
+  let postCategorySelect = $("#category");
   postCategorySelect.on("change", handleCategoryChange);
-  var posts;
+  let cards;
 
   // This function grabs posts from the database and updates the view
   function getPosts(category) {
-    var categoryString = category || "";
+    let categoryString = category || "";
     if (categoryString) {
       categoryString = "/category/" + categoryString;
     }
-    $.get("/api/posts" + categoryString, function(data) {
+    $.get("/api/posts/left" + categoryString, function (data) {
       console.log("Posts", data);
-      posts = data;
-      if (!posts || !posts.length) {
-        displayEmpty();
-      }
-      else {
-        initializeRows();
-      }
+      cards = data;
+      initializeRowsLeft();
     });
-  }
-
-  // This function does an API call to delete posts
-  function deletePost(id) {
-    $.ajax({
-      method: "DELETE",
-      url: "/api/posts/" + id
-    })
-      .then(function() {
-        getPosts(postCategorySelect.val());
-      });
   }
 
   // Getting the initial list of posts
   getPosts();
   // InitializeRows handles appending all of our constructed post HTML inside
-  // blogContainer
-  function initializeRows() {
-    blogContainer.empty();
-    var postsToAdd = [];
-    for (var i = 0; i < posts.length; i++) {
-      postsToAdd.push(createNewRow(posts[i]));
+  // leftContainer
+  function initializeRowsLeft() {
+    leftContainer.empty();
+    let cardsToAdd = [];
+    for (let i = 0; i < cards.length; i++) {
+      cardsToAdd.push(createNewRow(cards[i]));
     }
-    blogContainer.append(postsToAdd);
+    leftContainer.append(cardsToAdd);
   }
 
-  // This function constructs a post's HTML
+  // This function constructs a card's HTML
   function createNewRow(post) {
-    var newPostCard = $("<div>");
-    newPostCard.addClass("card");
-    var newPostCardHeading = $("<div>");
-    newPostCardHeading.addClass("card-header");
-    // var deleteBtn = $("<button>");
-    // deleteBtn.text("x");
-    // deleteBtn.addClass("delete btn btn-danger");
-    // var editBtn = $("<button>");
-    // editBtn.text("EDIT");
-    // editBtn.addClass("edit btn btn-default");
-    // var newPostDate = $("<small>");
-    var newPostTitle = $("<h2>");
-    var newPostCategory = $("<h5>");
-    newPostCategory.text(post.card_color_identity);
-    newPostCategory.css({
-      float: "right",
-      "font-weight": "700",
-      "margin-top":
-      "-15px"
+    let newCard = $("<div>");
+    let newBody = $("<img>");
+
+    newCard.attr({
+      "id":post.id,
+      "class":"dc_point dc_card dc_ib"
     });
-    var newPostCardBody = $("<div>");
-    newPostCardBody.addClass("card-body");
-    var newPostBody = $("<img>");
-    newPostTitle.text(post.card_name + " ");
-    newPostBody.attr("src",post.card_image_url);
-    // var formattedDate = new Date(post.createdAt);
-    // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    // newPostDate.text(formattedDate);
-    // newPostTitle.append(newPostDate);
-    // newPostCardHeading.append(deleteBtn);
-    // newPostCardHeading.append(editBtn);
-    newPostCardHeading.append(newPostTitle);
-    newPostCardHeading.append(newPostCategory);
-    newPostCardBody.append(newPostBody);
-    newPostCard.append(newPostCardHeading);
-    newPostCard.append(newPostCardBody);
-    newPostCard.data("post", post);
-    return newPostCard;
-  }
 
-  // This function figures out which post we want to delete and then calls
-  // deletePost
-  function handlePostDelete() {
-    var currentPost = $(this)
-      .parent()
-      .parent()
-      .data("post");
-    deletePost(currentPost.id);
-  }
+    newBody.attr({
+      "src":post.card_image_url,
+      "width":"180",
+      "style":"height:251px !important",
+      "class":"lazy dc_cardpict",
+      "title":"Welcome to the Jungle"
+    });
 
-  // This function figures out which post we want to edit and takes it to the
-  // Appropriate url
-  function handlePostEdit() {
-    var currentPost = $(this)
-      .parent()
-      .parent()
-      .data("post");
-    window.location.href = "/cms?post_id=" + currentPost.id;
-  }
-
-  // This function displays a message when there are no posts
-  function displayEmpty() {
-    blogContainer.empty();
-    var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post.");
-    blogContainer.append(messageH2);
+    newCard.append(newBody);
+    newCard.data("post", post);
+    return newCard;
   }
 
   // This function handles reloading new posts when the category changes
   function handleCategoryChange() {
-    var newPostCategory = $(this).val();
+    let newPostCategory = $(this).val();
     getPosts(newPostCategory);
   }
 

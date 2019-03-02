@@ -10,8 +10,19 @@ form#cms {
   resize: none;
 }
 
-.card-header button.delete,
-button.edit {
-  float: right;
-  margin: 5px;
+.dc_card {
+  overflow: hidden;
+  width: 180px;
+  height: 251px;
+  transition-duration: 200ms;
+  transition-property: filter;
+  filter: saturate(.7);
+}
+
+.dc_ib {
+  display: inline-block;
+}
+
+.dc_point {
+  cursor: pointer;
 }
