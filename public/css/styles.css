@@ -15,3 +15,18 @@ button.edit {
   float: right;
   margin: 5px;
 }
+
+#jumbo {
+  background-image: url("https://227rsi2stdr53e3wto2skssd7xe-wpengine.netdna-ssl.com/wp-content/uploads/2017/01/mtg-banner-730x280.jpg");
+  height: 100%;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+#search {
+  width: 10px;
+}
+

@@ -1,19 +1,28 @@
 <div class="container">
-  <div class="row mt-4">
-    <div class="col-md-4">
-      <div class="form-group">
-        <select class="custom-select" id="category">
-          <option selected value="">All Categories</option>
-          <option value="W">White</option>
-          <option value="B">Black</option>
-          <option value="U">Blue</option>
-          <option value="R ">Red</option>
-          <option value="G">Green</option>
-        </select>
-      </div>
+  <div class="row sm">
+    <div class="col sm">
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Search</span>
+  </div>
+  <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+
+    </div>  
+      <button type="button" class="btn btn-primary" id="all">All</button>
+      <button type="button" class="btn btn-secondary" id="noCol">Colorless</button>
+      <button type="button" class="btn btn-warning" id="multi">Multi</button>
+      <button type="button" class="btn btn-success" id="green">Green</button>
+      <button type="button" class="btn btn-danger" id="red">Red</button>
+      <button type="button" class="btn btn-dark" id="black">Black</button>
+      <button type="button" class="btn btn-info" id="blue">Blue</button>
+      <button type="button" class="btn btn-link">White</button>
     </div>
-    <div class="col-md-2">
-      <a class="btn btn-light" href="/cms">New Post</a>
+    
+
+
+ 
+    <div class="col-sm">
+      <a class="btn btn-light" href="/cms">New Deck</a>
     </div>
   </div>
   <div class="row">
