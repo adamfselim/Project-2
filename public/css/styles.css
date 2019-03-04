@@ -10,6 +10,22 @@ form#cms {
   resize: none;
 }
 
+#wrap {
+  width:1200px;
+  margin:auto;
+  vertical-align:top!important;
+}
+
+#leftwrap {
+  float:left;
+  width:920px;
+}
+
+#rightwrap {
+  float:left;
+  width:235px;
+}
+
 .dc_card {
   overflow: hidden;
   width: 180px;
@@ -25,4 +41,24 @@ form#cms {
 
 .dc_point {
   cursor: pointer;
+}
+
+.dc_cname {
+  overflow:hidden;
+  width:160px;
+  height:31px!important;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.dc_ccc {
+  font-size:16px;
+  line-height:31px;
+  position:relative;
+  z-index:1;height:31px;
+  vertical-align:top;
+}
+
+.dc_ib {
+  display:inline-block;
 }

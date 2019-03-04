@@ -4,8 +4,12 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    deck_list: {
+    deck_user: {
       type: DataTypes.STRING,
+      allowNull: false
+    },
+    deck_list: {
+      type: DataTypes.TEXT,
       allowNull: false
     },
     notes: {
