@@ -25,6 +25,8 @@ app.set('views', './app/views')
 app.engine('hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
+//For Public CSS-JS and Images
+app.use(express.static("public"));
 
 app.get('/', function(req, res){
   res.send('Welcome to Passport with Sequelize');
