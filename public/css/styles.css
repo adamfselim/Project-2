@@ -15,7 +15,7 @@ button.edit {
   float: right;
   margin: 5px;
 }
-
+/* 
 #jumbo {
   background-image: url("http://1.bp.blogspot.com/-ImJS9jXGbtc/VK0gpFb_h5I/AAAAAAAADE8/tUZ5x6j7Yjs/s1600/mtg_banner.jpg");
   background-color: black;
@@ -25,17 +25,18 @@ button.edit {
   height: 126px;
   width: 600px;
 
-}
+} */
 
-.jumbotron {
+/* .jumbotron {
   background-color: transparent;
-}
+} */
 
 h1 {
   color: white;
-  text-align: center;
+  text-align: left;
   font-family: 'Fjalla One', sans-serif;
   text-decoration: underline;
+  font-size: 50px;
 }
 
 body {
@@ -50,6 +51,12 @@ body {
 
 #white {
   background-color: white;
+}
+
+.header img {
+  float: left;
+  width: 60px;
+  height: 60px;
 }
 
 
