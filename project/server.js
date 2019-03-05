@@ -22,15 +22,13 @@ app.use(passport.session()); // persistent login sessions
 
  //For Handlebars
 app.set('views', './app/views')
-app.engine('hbs', exphbs({extname: '.hbs'}));
+app.engine('hbs', exphbs({extname: '.hbs', defaultLayout: 'main'}));
 app.set('view engine', '.hbs');
 
 //For Public CSS-JS and Images
 app.use(express.static("public"));
 
-app.get('/', function(req, res){
-  res.send('Welcome to Passport with Sequelize');
-});
+
 
 
 //Models
@@ -55,7 +53,7 @@ console.log(err,"Something went wrong with the Database Update!")
 
 
 
-app.listen(5000, function(err){
+app.listen(PORT, function(err){
     if(!err)
     console.log("Site is live"); else console.log(err)
 

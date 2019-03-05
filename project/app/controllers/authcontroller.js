@@ -3,19 +3,25 @@ var exports = module.exports = {}
 
 exports.signup = function(req,res){
 
-	res.render('signup'); 
+  let goodsignup = { 
+  signup: true}
+  	res.render('signup', goodsignup); 
 
 }
 
 exports.signin = function(req,res){
 
-	res.render('signin'); 
+  let goodsignin = { 
+    signin: true}
+      res.render('signin', goodsignin); 
 
 }
 
 exports.dashboard = function(req,res){
 
-	res.render('dashboard'); 
+  let gooddashboard = { 
+    dashboard: true}
+      res.render('dashboard', gooddashboard); 
 
 }
 
