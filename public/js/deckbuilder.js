@@ -60,12 +60,12 @@ $(document).ready(function () {
     function initializeRowsRight() {
       rightContainer.empty();
       let cardsTemp = [];
-      let cardsToAdd = JSON.parse(userCards[0].deck_list);
-      // console.log(cardsToAdd);
-      // console.log('Rows Right ' + userCards[0].deck_list);
-      for (let i = 0; i < cardsToAdd.length; i++) {
-        cardsTemp.push(createNewRowRight(cardsToAdd[i].id));
-      }
+      // let cardsToAdd = JSON.parse(userCards[0].deck_list);
+      // // console.log(cardsToAdd);
+      // // console.log('Rows Right ' + userCards[0].deck_list);
+      // for (let i = 0; i < cardsToAdd.length; i++) {
+      //   cardsTemp.push(createNewRowRight(cardsToAdd[i].id));
+      // }
       rightContainer.append(cardsTemp);
     }
   

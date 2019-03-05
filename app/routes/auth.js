@@ -43,9 +43,19 @@ module.exports = function (app, passport) {
   });
 
   app.get("/api/posts/right/", function (req, res) {
-    db.Userdeck.findAll({ limit: 60 })
+    db.Userdeck.findAll(
+      {
+        limit: 60
+      },
+      {
+        where: {
+          id: res.user.id
+        }
+      }
+    )
       .then(function (dbPost) {
         res.json(dbPost);
+        console.log(req.user.id);
       });
   });
 
@@ -55,7 +65,7 @@ module.exports = function (app, passport) {
       where: {
         card_color_identity: req.params.category
       },
-      limit: 20
+      limit: 30
     })
       .then(function (dbPost) {
         res.json(dbPost);

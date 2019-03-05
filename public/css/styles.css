@@ -34,6 +34,16 @@ button.submit {
     transition-property: filter;
     filter: saturate(.7);
   }
+
+  /* .dc_cardpict:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:500px;
+    height:auto;
+    display:block;
+    z-index:999;
+  } */
   
   .dc_ib {
     display: inline-block;
