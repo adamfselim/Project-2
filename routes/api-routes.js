@@ -7,14 +7,14 @@ module.exports = function (app) {
 
   // GET route for getting all of the cards, limited to x on the left side.
   app.get("/api/posts/left/", function (req, res) {
-    db.Mtgcard.findAll({limit:30})
+    db.Mtgcard.findAll({ limit: 30 })
       .then(function (dbPost) {
         res.json(dbPost);
       });
   });
 
   app.get("/api/posts/right/", function (req, res) {
-    db.Userdeck.findAll({limit:60})
+    db.Userdeck.findAll({ limit: 60 })
       .then(function (dbPost) {
         res.json(dbPost);
       });
@@ -26,7 +26,7 @@ module.exports = function (app) {
       where: {
         card_color_identity: req.params.category
       },
-      limit:20
+      limit: 20
     })
       .then(function (dbPost) {
         res.json(dbPost);
@@ -46,7 +46,7 @@ module.exports = function (app) {
   });
 
   // PUT route for updating deck list in user deck
-  app.post("/api/posts/", function(req, res) {
+  app.post("/api/posts/card", function (req, res) {
 
     // db.Userdeck.update(
     //   {
@@ -56,6 +56,7 @@ module.exports = function (app) {
     //     res.json(dbPost);
     //   });
     console.log("Express post: " + req.body.card_name);
+    res.status(200).send();
+    return;
   });
-
 };

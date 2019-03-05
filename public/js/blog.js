@@ -34,9 +34,9 @@ $(document).ready(function () {
 
   function addCardRight(card) {
     $.get("/api/posts/" + card, function (data) {
-      cardAdd =  JSON.stringify(data);
+      cardAdd = JSON.stringify(data);
       console.log("Card to add: " + cardAdd);
-      $.post("/api/posts/", data);
+      $.post("/api/posts/card", data);
     });
   }
 
