@@ -1,20 +1,25 @@
 module.exports = function (sequelize, DataTypes) {
-  const Userdeck = sequelize.define("Userdeck", {
+  const Usercard = sequelize.define("Usercard", {
     deck_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    deck_user: {
-      type: DataTypes.STRING,
+    card_id: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
-    deck_list: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    notes: {
-      type: DataTypes.TEXT
+    card_qnty: {
+      type: DataTypes.INTEGER
     }
   });
-  return Userdeck;
+
+  Usercard.associate = function (models) {
+    Usercard.belongsTo(models.Userdeck, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  return Usercard;
 };
