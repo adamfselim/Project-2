@@ -62,3 +62,7 @@ button.submit {
   .dc_ib {
     display:inline-block;
   }
+  
+  .form-group {
+    color: white;
+  }
