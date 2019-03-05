@@ -1,10 +1,11 @@
-var express    = require('express')
-var app        = express()
-var passport   = require('passport')
-var session    = require('express-session')
-var bodyParser = require('body-parser')
-var env        = require('dotenv').load()
-var exphbs     = require('express-handlebars')
+var express    = require('express');
+var app        = express();
+var PORT = process.env.PORT || 8080;
+var passport   = require('passport');
+var session    = require('express-session');
+var bodyParser = require('body-parser');
+var env        = require('dotenv').load();
+var exphbs     = require('express-handlebars');
 
 
 
