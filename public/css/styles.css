@@ -17,16 +17,41 @@ button.edit {
 }
 
 #jumbo {
-  background-image: url("https://227rsi2stdr53e3wto2skssd7xe-wpengine.netdna-ssl.com/wp-content/uploads/2017/01/mtg-banner-730x280.jpg");
-  height: 100%;
+  background-image: url("http://1.bp.blogspot.com/-ImJS9jXGbtc/VK0gpFb_h5I/AAAAAAAADE8/tUZ5x6j7Yjs/s1600/mtg_banner.jpg");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 126px;
+  width: 600px;
+
+}
+
+.jumbotron {
+  background-color: transparent;
 }
 
 h1 {
   color: white;
   text-align: center;
+  font-family: 'Fjalla One', sans-serif;
+  text-decoration: underline;
 }
 
-#search {
-  width: 10px;
+body {
+  background-color: black;
 }
+
+#filter {
+  border: 2px solid;
+  border-color: silver;
+  background-color: maroon;
+}
+
+#white {
+  background-color: white;
+}
+
+
+
 
