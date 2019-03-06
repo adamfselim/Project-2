@@ -10,9 +10,13 @@ $(document).ready(function () {
   let cardAdd;
 
   // Load first deck or create new one if none exists
-  function checkForDeck() {
-    $.get("/api/default", function (data) {
-
+  function newUserDeckCreate() {
+    $.get("/api/check", function (data) {
+      if(!data) {
+        console.log("No decks detected, one has been created! " + data);
+      } else {
+        console.log("Deck exists! " + data);
+      }
     });
   }
 
@@ -35,8 +39,8 @@ $(document).ready(function () {
     $.get("/api/cards/right", function (data) {
       // console.log("Usercards", data);
       userCards = data;
-      console.log("Returned Deck: " , data);
-      // initializeRowsRight();
+      console.log("Returned Data: " , data);
+      initializeRowsRight();
     });
   }
 
@@ -53,7 +57,7 @@ $(document).ready(function () {
     addCardRight($(this).attr("id"));
   });
 
-  checkForDeck();
+  newUserDeckCreate();
   getCardsLeft();
   getCardsRight();
 
@@ -68,13 +72,10 @@ $(document).ready(function () {
 
   function initializeRowsRight() {
     rightContainer.empty();
-    let cardsTemp = [];
-    // let cardsToAdd = JSON.parse(userCards[0].deck_list);
-    // // console.log(cardsToAdd);
-    // // console.log('Rows Right ' + userCards[0].deck_list);
-    // for (let i = 0; i < cardsToAdd.length; i++) {
-    //   cardsTemp.push(createNewRowRight(cardsToAdd[i].id));
-    // }
+    cardsTemp = [];
+    for (let i = 0; i < userCards.Usercards.length; i++) {
+      cardsTemp.push(createNewRowRight(Usercards.Usercards[i].id));
+    }
     rightContainer.append(cardsTemp);
   }
 

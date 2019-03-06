@@ -4,9 +4,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    username: {
-      type: DataTypes.TEXT,
-      allowNull: false
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "inactive"
     },
     notes: {
       type: DataTypes.TEXT

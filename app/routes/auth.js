@@ -36,13 +36,26 @@ module.exports = function (app, passport) {
   // routes for dashboard
   // GET route for getting all of the cards, limited to x on the left side.
 
-  app.get('/api/default/', function (req, res) {
+  app.get('/api/check/', function (req, res) {
     db.Userdeck.findOne({ where: { userId: req.user.id } })
       .then(function (dbPost) {
         if (dbPost) {
-          console.log("User Deck Exists", dbPost);
+          console.log("User Deck Exists" + dbPost);
+          res.json(dbPost);
         } else {
-          console.log("No Deck for this User", dbPost);
+          console.log("No Deck for this User" + dbPost);
+          var val = Math.floor(1000 + Math.random() * 9000);
+          console.log("deck" + val);
+          var data =
+          {
+            deck_name: "deck" + val,
+            status: "active",
+            notes: "",
+            userId: req.user.id
+          };
+          db.Userdeck.create(data);
+          console.log("Deck Created and set to active");
+          res.json(dbPost);
         }
       });
   });
@@ -55,10 +68,10 @@ module.exports = function (app, passport) {
   });
 
   app.get("/api/cards/right/", function (req, res) {
-    db.Userdeck.findOne({ limit: 1 }, { where: { userId: req.user.id } })
+    db.Userdeck.findOne({ where: { status: "active", userId: req.user.id }, include: [db.Usercard] })
       .then(function (dbPost) {
         res.json(dbPost);
-        console.log(req.user.id);
+        // console.log(req.user.id);
       });
   });
 
@@ -90,14 +103,28 @@ module.exports = function (app, passport) {
   // PUT route for updating deck list in user deck
   app.post("/api/cards/card", function (req, res) {
 
-    // db.Userdeck.update(
-    //   {
-    //     deck_list
-    //   })
-    //   .then(function(dbPost) {
-    //     res.json(dbPost);
-    //   });
-    console.log("Express post: " + req.body.card_name);
+    db.Usercard.findOne({ where: { card_id: req.body.id, UserdeckId: req.user.id }})
+      .then(function (dbPost) {
+        // res.json(dbPost);
+        console.log("Card DBPOST: " + dbPost);
+        if (dbPost) {
+          // db.usercard.update({card_qnty: sequelize.literal(card_qnty +1)}
+          // // increment qnty unless greater than 4!
+          console.log("Card Already Exists!");
+        } else {
+          // add card!
+          // var data =
+          // {
+          //   card_id: req.body.id,
+          //   card_qnty: "1",
+          //   UserdeckId: req.body.id
+          // };
+          // db.Usercard.create(data);
+          console.log("Card Does not exist");
+          console.log(dbPost);
+        }
+      });
+    console.log("Express post: " + req.body.card_name, req.body.id, req.user.id);
     res.status(200).send();
     return;
   });
