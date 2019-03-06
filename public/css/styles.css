@@ -55,10 +55,11 @@ button.submit {
   
   .dc_cname {
     overflow:hidden;
-    width:160px;
+    width:250px;
     height:31px!important;
     white-space:nowrap;
     text-overflow:ellipsis;
+    color:white;
   }
   
   .dc_ccc {

@@ -38,8 +38,8 @@ $(document).ready(function () {
   function getCardsRight() {
     $.get("/api/cards/right", function (data) {
       // console.log("Usercards", data);
-      userCards = data;
-      console.log("Returned Data: " , data);
+      userCards = data[0].Usercards;
+      // console.log("Returned Data: " , data[0].Usercards);
       initializeRowsRight();
     });
   }
@@ -73,8 +73,8 @@ $(document).ready(function () {
   function initializeRowsRight() {
     rightContainer.empty();
     cardsTemp = [];
-    for (let i = 0; i < userCards.Usercards.length; i++) {
-      cardsTemp.push(createNewRowRight(Usercards.Usercards[i].id));
+    for (let i = 0; i < userCards.length; i++) {
+      cardsTemp.push(createNewRowRight(userCards[i].card_id,userCards[i].card_qnty));
     }
     rightContainer.append(cardsTemp);
   }
@@ -101,7 +101,7 @@ $(document).ready(function () {
   }
 
   // This function constructs a card's HTML
-  function createNewRowRight(post) {
+  function createNewRowRight(post,qnty) {
     let newCard = $("<div>");
     let newBody = $("<strong>");
 
@@ -111,10 +111,11 @@ $(document).ready(function () {
     $.get("/api/cards/" + post, function (data) {
       // console.log("Mtgcards", data);
       cardTemp = data.card_name;
-      newBody.text(cardTemp);
+      newBody.text(cardTemp + " " + qnty);
     });
+    console.log(post);
     newCard.append(newBody);
-    newCard.data("post", post);
+    // newCard.data("post", post);
     return newCard;
   }
 
