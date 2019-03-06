@@ -16,7 +16,7 @@ $(document).ready(function () {
         // console.log('category changed');
         categoryString = "/category/" + categoryString;
       }
-      $.get("/api/posts/left" + categoryString, function (data) {
+      $.get("/api/cards/left" + categoryString, function (data) {
         // console.log("Mtgcards", data);
         cards = data;
         // console.log(cards);
@@ -25,18 +25,19 @@ $(document).ready(function () {
     }
   
     function getCardsRight() {
-      $.get("/api/posts/right", function (data) {
+      $.get("/api/cards/right", function (data) {
         // console.log("Usercards", data);
         userCards = data;
-        initializeRowsRight();
+        console.log(data);
+        // initializeRowsRight();
       });
     }
   
     function addCardRight(card) {
-      $.get("/api/posts/" + card, function (data) {
+      $.get("/api/cards/" + card, function (data) {
         cardAdd = JSON.stringify(data);
         console.log("Card to add: " + cardAdd);
-        $.post("/api/posts/card", data);
+        $.post("/api/cards/card", data);
       });
     }
   
@@ -98,7 +99,7 @@ $(document).ready(function () {
       newCard.attr({
         "class": "dc_cname dc_ccc dc_ib"
       });
-      $.get("/api/posts/" + post, function (data) {
+      $.get("/api/cards/" + post, function (data) {
         // console.log("Mtgcards", data);
         cardTemp = data.card_name;
         newBody.text(cardTemp);

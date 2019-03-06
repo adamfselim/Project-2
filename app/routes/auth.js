@@ -35,32 +35,33 @@ module.exports = function (app, passport) {
 
   // routes for dashboard
   // GET route for getting all of the cards, limited to x on the left side.
-  app.get("/api/posts/left/", function (req, res) {
+
+  app.get("/api/cards/left/", function (req, res) {
     db.Mtgcard.findAll({ limit: 30 })
       .then(function (dbPost) {
         res.json(dbPost);
       });
   });
 
-  app.get("/api/posts/right/", function (req, res) {
+  app.get("/api/cards/right/", function (req, res) {
     db.Userdeck.findAll(
       {
         limit: 60
       },
       {
         where: {
-          id: res.user.id
+          id: req.user.id
         }
       }
     )
       .then(function (dbPost) {
         res.json(dbPost);
-        console.log(req.user.id);
+        // console.log(req.user.id);
       });
   });
 
   // Get route for returning posts of a specific category
-  app.get("/api/posts/left/category/:category", function (req, res) {
+  app.get("/api/cards/left/category/:category", function (req, res) {
     db.Mtgcard.findAll({
       where: {
         card_color_identity: req.params.category
@@ -73,7 +74,7 @@ module.exports = function (app, passport) {
   });
 
   // Get route for retrieving a single card by ID from the mtg deck
-  app.get("/api/posts/:id", function (req, res) {
+  app.get("/api/cards/:id", function (req, res) {
     db.Mtgcard.findOne({
       where: {
         id: req.params.id
@@ -85,7 +86,7 @@ module.exports = function (app, passport) {
   });
 
   // PUT route for updating deck list in user deck
-  app.post("/api/posts/card", function (req, res) {
+  app.post("/api/cards/card", function (req, res) {
 
     // db.Userdeck.update(
     //   {
