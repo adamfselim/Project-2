@@ -36,6 +36,17 @@ module.exports = function (app, passport) {
   // routes for dashboard
   // GET route for getting all of the cards, limited to x on the left side.
 
+  app.get('/api/default/', function (req, res) {
+    db.Userdeck.findOne({ where: { userId: req.user.id } })
+      .then(function (dbPost) {
+        if (dbPost) {
+          console.log("User Deck Exists", dbPost);
+        } else {
+          console.log("No Deck for this User", dbPost);
+        }
+      });
+  });
+
   app.get("/api/cards/left/", function (req, res) {
     db.Mtgcard.findAll({ limit: 30 })
       .then(function (dbPost) {
@@ -44,19 +55,10 @@ module.exports = function (app, passport) {
   });
 
   app.get("/api/cards/right/", function (req, res) {
-    db.Userdeck.findAll(
-      {
-        limit: 60
-      },
-      {
-        where: {
-          id: req.user.id
-        }
-      }
-    )
+    db.Userdeck.findOne({ limit: 1 }, { where: { userId: req.user.id } })
       .then(function (dbPost) {
         res.json(dbPost);
-        // console.log(req.user.id);
+        console.log(req.user.id);
       });
   });
 
