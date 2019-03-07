@@ -8,30 +8,33 @@
     {{!-- Animate CSS --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     {{!-- Google and Font Aweseom Fonts --}}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One">
+    {{!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One"> --}}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=New+Rocker&amp;subset=latin-ext">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 
-<body style="background-color: black;">
+<body style="background-color: black; font-family: 'New Rocker', cursive;">
     <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1"></span>
+      <a class="navbar-brand" href="#">
+    <img src="https://i.pinimg.com/originals/5b/8d/35/5b8d354c534c5f4f3404c84a12d892eb.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Bestusdeckus
+  </a>
         {{#if signin}}
         <a id="signuppage" href="/signup"
-            style="color: white; font-family: 'Fjalla One', sans-serif; padding-right: 20px">Not a member
+            style="color: white; padding-right: 20px">Not a member
             yet? Sign up Here.</a>
         {{/if}}
         {{#if signup}}
         <a id="signinpage" href="/signin"
-            style="color: white; font-family: 'Fjalla One', sans-serif; padding-right: 20px">Already a
+            style="color: white; padding-right: 20px">Already a
             member? Sign in Here.</a>
         {{/if}}
         {{#if dashboard}}
-        <a class="navbar-brand" style="color: white">{{userEmail}}</a>
+        <a class="navbar-brand" style="color: white">Welcome {{userEmail}}!</a>
         <a id="dashboardpage" href="/logout"
-            style="color: white; font-family: 'Fjalla One', sans-serif; padding-right: 20px">Log Out.</a>
+            style="color: white; padding-right: 20px">Log Out.</a>
         {{/if}}
     </nav>
     <div class="container-fluid">
