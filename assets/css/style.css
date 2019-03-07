@@ -48,3 +48,7 @@ h1 {
     color: white;
     font-family: 'New Rocker';
 }
+
+#all {
+    margin: 10px;
+}
