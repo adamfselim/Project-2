@@ -16,7 +16,8 @@ exports.signin = function (req, res) {
 
 exports.dashboard = function (req, res) {
   let gooddashboard = {
-    dashboard: true
+    dashboard: true,
+    userEmail: req.user.email
   }
   res.render('dashboard', gooddashboard);
 }
