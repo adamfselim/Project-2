@@ -61,7 +61,7 @@ module.exports = function (app, passport) {
   });
 
   app.get("/api/cards/left/", function (req, res) {
-    db.Mtgcard.findAll({ limit: 30 })
+    db.Mtgcard.findAll({ limit: 1000 })
       .then(function (dbPost) {
         res.json(dbPost);
       });
@@ -80,7 +80,7 @@ module.exports = function (app, passport) {
       where: {
         card_color_identity: req.params.category
       },
-      limit: 30
+      limit: 1000
     })
       .then(function (dbPost) {
         res.json(dbPost);

@@ -9,6 +9,15 @@ $(document).ready(function () {
   let cardTemp;
   let cardAdd;
 
+  // nicescroll!
+  $(function() {
+    $("#leftContainer").niceScroll();
+  });
+
+  // $("#leftContainer").slideDown(function(){
+  //   $("#leftContainer").getNiceScroll().resize();
+  // });
+
   // Load first deck or create new one if none exists
   function newUserDeckCreate() {
     $.get("/api/check", function (data) {
