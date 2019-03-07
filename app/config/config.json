@@ -1,11 +1,16 @@
 {
     "development": {
         "username": "root",
+<<<<<<< HEAD
  
         "password": "Imperious",
  
         "database": "passport",
  
+=======
+        "password": "Monk3yH8sPa$$word$",
+        "database": "bestusdeckus",
+>>>>>>> 92a04dda8e86d5d99d8bdbb0169719d0d3627c47
         "host": "127.0.0.1",
         "port": 3306,
         "dialect": "mysql"
