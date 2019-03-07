@@ -5,9 +5,13 @@ var path = require("path");
 var Sequelize = require("sequelize");
 var env = process.env.JAWSDB_URL || "production";
 var config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
-var sequelize = new Sequelize(config.database, config.username, config.password, config);
+// var sequelize = new Sequelize(config.database, config.username, config.password, config);
+if (config.use_env_variable) {
+    var sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  } else {
+    var sequelize = new Sequelize(config.database, config.username, config.password, config);
+  }
 var db = {};
- 
  
 fs
     .readdirSync(__dirname)
@@ -24,7 +28,6 @@ Object.keys(db).forEach(function(modelName) {
         db[modelName].associate(db);
     }
 });
- 
  
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
