@@ -4,9 +4,9 @@
  
         "username": "root",
  
-        "password": "Monk3yH8sPa$$word$",
+        "password": "Imperious",
  
-        "database": "sequelize_passport",
+        "database": "passport",
  
         "host": "127.0.0.1",
 

@@ -1,8 +1,8 @@
 <div class="container" id="filter">
   <div class="row sm">
-    <div class="col-md-">
+    <div class="col-md- my-1" id="search">
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Cards" aria-label="Search">
       </form>
   </div>
     
@@ -16,25 +16,25 @@
       <button type="button" class="btn btn-info" id="blue">Blue</button>
       <button type="button" class="btn btn-link" id="white">White</button>
 
+ <form>
+  <div class="form-row align-items-center" id="deckName">
+    <div class="col-sm-7 my-1">
+      <label class="sr-only" for="inlineFormInputName">Name</label>
+      <input type="text" class="form-control" id="inlineFormInputName" placeholder="Deck Name">
+    </div>
+
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    All Cards
+    My Decks
     </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">My Decks</a>
+    <a class="dropdown-item" href="#">New Deck</a>
+    <a class="dropdown-item" href="#">Deck One</a>
+    <a class="dropdown-item" href="#">Derp</a>
   </div>
-</div>
 
-    </div>
-
-    
-
-
-  {{!-- <div class="row">
-    <div class="col-md-12 blog-container">
-    </div>
-  </div> --}}
 </div>
 <!-- Custom Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
 <script src="js/blog.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
