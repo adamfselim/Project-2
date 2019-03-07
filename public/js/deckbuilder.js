@@ -49,6 +49,7 @@ $(document).ready(function () {
       cardAdd = JSON.stringify(data);
       console.log("Card to add: " + cardAdd);
       $.post("/api/cards/card", data);
+      location.reload();
     });
   }
 
