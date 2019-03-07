@@ -48,14 +48,25 @@ $(document).ready(function () {
     $.get("/api/cards/" + card, function (data) {
       cardAdd = JSON.stringify(data);
       console.log("Card to add: " + cardAdd);
-      $.post("/api/cards/card", data);
+      $.post("/api/cards/add", data);
       location.reload();
     });
+  }
+
+  function removeCardRight(card) {
+      $.post("/api/cards/remove/" + card);
+      location.reload();
   }
 
   $('#leftContainer').on('click', '.dc_card', function (event) {
     event.preventDefault();
     addCardRight($(this).attr("id"));
+  });
+
+  $('#rightContainer').on('click', '.dc_cname', function (event) {
+    event.preventDefault();
+    removeCardRight($(this).attr("data"));
+    console.log('You just clicked me');
   });
 
   newUserDeckCreate();
@@ -107,8 +118,10 @@ $(document).ready(function () {
     let newBody = $("<strong>");
 
     newCard.attr({
-      "class": "dc_cname dc_ccc dc_ib"
+      "class": "dc_cname dc_ccc dc_ib",
+      "data": post
     });
+
     $.get("/api/cards/" + post, function (data) {
       // console.log("Mtgcards", data);
       cardTemp = data.card_name;
