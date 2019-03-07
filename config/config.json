@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Imperious",
-    "database": "bestdeck",
+    "database": "passport",
     "host": "localhost",
     "port": 3306,
     "dialect": "mysql"

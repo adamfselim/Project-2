@@ -44,9 +44,9 @@ body {
 }
 
 #filter {
-  border: 2px solid;
-  border-color: silver;
-  background-color: maroon;
+  /* border: 2px solid;
+  border-color: silver; */
+  background-color: black;
 }
 
 #white {

@@ -4,7 +4,7 @@
  
         "password": "Imperious",
  
-        "database": "project",
+        "database": "passport",
  
         "host": "127.0.0.1",
         "port": 3306,
