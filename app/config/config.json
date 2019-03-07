@@ -1,51 +1,29 @@
 {
- 
     "development": {
- 
         "username": "root",
  
         "password": "Imperious",
  
-        "database": "passport",
+        "database": "project",
  
         "host": "127.0.0.1",
-
         "port": 3306,
- 
         "dialect": "mysql"
- 
     },
- 
     "test": {
- 
         "username": "",
- 
         "password": null,
- 
         "database": "",
- 
         "host": "",
-
         "port": 3306,
- 
         "dialect": "mysql"
- 
     },
- 
     "production": {
- 
         "username": "",
- 
         "password": null,
- 
         "database": "",
- 
         "host": "127.0.0.1",
-
         "port": 3306,
- 
         "dialect": "mysql"
- 
     }
- 
 }

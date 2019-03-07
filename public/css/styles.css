@@ -68,3 +68,79 @@ body {
 
 
 
+  
+  form#cms {
+    margin-top: 50px;
+  }
+  
+  #cms textarea {
+    resize: none;
+  }
+  
+  #wrap {
+    width:1200px;
+    margin:auto;
+    vertical-align:top!important;
+  }
+  
+  #leftwrap {
+    float:left;
+    width:920px;
+  }
+  
+  #rightwrap {
+    float:left;
+    width:235px;
+  }
+  
+  .dc_card {
+    overflow: hidden;
+    width: 180px;
+    height: 251px;
+    transition-duration: 200ms;
+    transition-property: filter;
+    filter: saturate(.7);
+  }
+
+  /* .dc_cardpict:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:500px;
+    height:auto;
+    display:block;
+    z-index:999;
+  } */
+  
+  .dc_ib {
+    display: inline-block;
+  }
+  
+  .dc_point {
+    cursor: pointer;
+  }
+  
+  .dc_cname {
+    overflow:hidden;
+    width:250px;
+    height:31px!important;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    color:white;
+  }
+  
+  .dc_ccc {
+    font-size:16px;
+    line-height:31px;
+    position:relative;
+    z-index:1;height:31px;
+    vertical-align:top;
+  }
+  
+  .dc_ib {
+    display:inline-block;
+  }
+  
+  .form-group {
+    color: white;
+  }
