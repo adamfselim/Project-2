@@ -117,29 +117,53 @@ $(document).ready(function () {
       "title": post.card_name
     });
     newCard.append(newBody);
-    newCard.data("post", post);
+    // newCard.data("post", post);
     return newCard;
   }
 
-  // This function constructs a card's HTML
+  // This function constructs a card's HTML on the right column
   function createNewRowRight(post, qnty) {
+    let newDiv = $("<div>");
     let newCard = $("<div>");
     let newBody = $("<strong>");
+    let newBG = $("<div>");
+    let newBG2 = $("<div>");
+    let newCC = $("<div>");
+
+    $.get("/api/cards/" + post, function (data) {
+      // console.log("Mtgcards", data);
+      let cardTemp = data.card_name;
+      let cardImage = data.card_image_url;
+      newBody.text(" " + qnty + " - " +cardTemp);
+      newBG2.attr({
+        "class": "dc_pict_overlay",
+        "style": "background: url(" + cardImage +") 140% 25%; background-repeat: no-repeat; background-size: 80%;"
+      });
+      newCC.text(qnty);
+      newCC.attr({
+        "class": "dc_ccopies dc_ccc dc_ib",
+        "style": "background-color:#447484"
+      });
+    });
+
+    newDiv.attr({
+      "class": "dc_drow dc_cardintext",
+      "data": post
+    });
 
     newCard.attr({
       "class": "dc_cname dc_ccc dc_ib",
       "data": post
     });
 
-    $.get("/api/cards/" + post, function (data) {
-      // console.log("Mtgcards", data);
-      cardTemp = data.card_name;
-      newBody.text(cardTemp + " " + qnty);
+    newBG.attr({
+      "class": "dc_grad_overlay",
+      "style": "background: linear-gradient(100deg,rgba(191,182,107,1) 40%,rgba(0,0,0,0) 90%);"
     });
-    // console.log(post);
+    newDiv.append(newBG).append(newBG2).append(newCard);
     newCard.append(newBody);
-    // newCard.data("post", post);
-    return newCard;
+    // append(newCC).
+    return newDiv;
   }
 
   newUserDeckCreate();

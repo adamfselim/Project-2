@@ -1,9 +1,14 @@
 #filter {
-	padding-bottom: 10px;
+	padding-bottom: 10px
+	text-align: center
+}
+
+b, strong {
+	padding-left: 5px;
 }
 
 .btn-group {
-	margin: 5px;
+	margin: 5px
 }
    
 .page-wrap {
@@ -72,7 +77,7 @@
 
 .dc_cname {
   overflow:hidden;
-  width:250px;
+  width:220px;
   height:31px!important;
   white-space:nowrap;
   text-overflow:ellipsis;
@@ -110,6 +115,56 @@
   width:1200px;
   margin:auto;
   vertical-align:top!important
+}
+
+.dc_drow {
+	line-height: 31px;
+	position: relative;
+	width: auto;
+	height: 31px;
+	transition-duration: 100ms;
+	transition-property: filter;
+	color: #fff!important;
+	border-bottom: solid 1px #36221e;
+	text-shadow: 0 1px 1px #000
+}
+
+.dc_drow:hover {
+	filter: brightness(1.2)
+}
+
+.dc_cardintext {
+	cursor: pointer
+}
+
+.dc_grad_overlay {
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	display: block;
+	width: 220px;
+	height: 30px
+}
+
+.dc_pict_overlay {
+	position: absolute;
+	z-index: 0;
+	bottom: 0;
+	display: block;
+	width: 220px;
+	height: 30px
+}
+
+.dc_ccopies {
+	font-weight: 700;
+	line-height: 27px;
+	float: left;
+	width: 23px;
+	height: 27px!important;
+	margin-top: 2px;
+	margin-right: 2px;
+	text-align: center;
+	color: #fff!important;
 }
 
 @media only screen and (max-width:1200px) {
