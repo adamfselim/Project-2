@@ -1,16 +1,30 @@
 button.submit {
-    float: right;
-  }
+    float: right
+}
    
+.page-wrap {
+  padding-top: 0!important
+}
+
+.container {
+  width: 1200px!important;
+  padding-left: 15px!important
+}
+
+#deckwrap {
+	display: inline-block;
+	vertical-align: top
+}
+
 #wrap {
   width:1200px;
   margin:auto;
-  vertical-align:top!important;
+  vertical-align:top!important
 }
 
 #leftwrap {
   float:left;
-  width:920px;
+  width:920px
 }
 
 #leftContainer {
@@ -22,11 +36,17 @@ button.submit {
   margin-bottom:5px;
   padding:6px;
   border-radius:4px;
+  background-color: rgb(60, 55, 55)
 }
 
-#rightwrap {
-  float:left;
-  width:235px;
+#thedeck {
+	position: relative;
+	display: inline-block;
+	width: 220px;
+	min-height: 600px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	background-color: rgb(60, 55, 55)
 }
 
 .dc_card {
@@ -35,25 +55,15 @@ button.submit {
   height: 251px;
   transition-duration: 200ms;
   transition-property: filter;
-  filter: saturate(.7);
+  filter: saturate(.7)
 }
 
-/* .dc_cardpict:hover {
-  position:relative;
-  top:-25px;
-  left:-35px;
-  width:500px;
-  height:auto;
-  display:block;
-  z-index:999;
-} */
-
 .dc_ib {
-  display: inline-block;
+  display: inline-block
 }
 
 .dc_point {
-  cursor: pointer;
+  cursor: pointer
 }
 
 .dc_cname {
@@ -63,6 +73,7 @@ button.submit {
   white-space:nowrap;
   text-overflow:ellipsis;
   color:white;
+  font-family:  'Roboto', sans-serif
 }
 
 .dc_ccc {
@@ -70,13 +81,173 @@ button.submit {
   line-height:31px;
   position:relative;
   z-index:1;height:31px;
-  vertical-align:top;
+  vertical-align:top
 }
 
 .dc_ib {
-  display:inline-block;
+  display:inline-block
 }
 
 .form-group {
-  color: white;
+  color: white
+}
+
+#rightContainer {
+  position:relative;
+  display:inline-block;
+  width:280px;
+  min-height:600px;
+  margin-bottom:5px;
+  border-radius:5px;
+  background-color:brown
+}
+
+#wrap {
+  width:1200px;
+  margin:auto;
+  vertical-align:top!important
+}
+
+@media only screen and (max-width:1200px) {
+	.container {
+		width: 1060px!important;
+		padding-left: 15px!important
+	}
+	#wrap {
+		width: 1060px!important
+	}
+	#leftContainer {
+		width: 773px
+	}
+	#leftwrap {
+		width: 779px
+	}
+	#left {
+		width: 1060px
+  }
+  #thedecky {
+		width: 175px
+	}
+}
+
+@media only screen and (max-width:1100px) {
+	#wrap {
+		width: 850px
+	}
+	.container {
+		width: 850px!important;
+		padding-left: 15px!important
+	}
+	#leftwrap {
+		width: 615px
+	}
+	#leftContainer {
+		overflow-x: auto;
+		overflow-y: hidden;
+		width: 610px;
+		height: 600px
+	}
+	#left {
+		width: 850px;
+		height: auto;
+		margin-bottom: 2px
+	}
+	#right {
+		width: 850px;
+		margin-left: 0
+	}
+	#rightwrap {
+		float: left;
+		width: 175px
+	}
+	#thedeck,
+	.dc_grad_overlay,
+	.dc_pict_overlay {
+		width: 175px
+	}
+}
+
+@media only screen and (max-width:820px) {
+	#dc_main {
+		width: 100%
+	}
+	#chartdiv,
+	#bardiv {
+		display: inline-block!important;
+		float: none!important
+	}
+	#wrap {
+		width: 100%!important;
+		margin: auto;
+		text-align: center!important
+	}
+	.container {
+		width: 100%!important
+	}
+	#leftContainer {
+		overflow: auto;
+		width: 100%!important;
+		height: auto;
+		border: none
+	}
+	#rightwrap,
+	#leftwrap {
+		width: 100%;
+		text-align: center
+	}
+	.dc_cardpict {
+		display: none!important
+	}
+	.dc_littlecard {
+		display: inline-block;
+		overflow: hidden;
+		width: 98%;
+		height: 70px;
+		margin: 2px;
+		padding: 3px;
+		border: solid 1px #36221e;
+		border-radius: 4px;
+		background-color: #dfd7c1
+	}
+	.dc_card {
+		overflow: visible;
+		width: 33%;
+		height: auto
+	}
+	#left {
+		width: 100%
+	}
+	#filters {
+		height: auto;
+		text-align: center
+	}
+	.dc_grad_overlay,
+	.dc_pict_overlay {
+		width: 175px
+	}
+	#thedeck {
+		max-width: 175px;
+		height: auto;
+		vertical-align: top!important
+	}
+	#deckwrap {
+		width: 100%;
+		text-align: center
+	}
+}
+
+@media only screen and (max-width:630px) {
+	.dc_stat {
+		width: 24%!important
+	}
+	.dc_card {
+		width: 50%;
+		height: auto
+	}
+}
+
+@media only screen and (max-width:425px) {
+	.dc_stat {
+		width: 48%!important
+	}
 }

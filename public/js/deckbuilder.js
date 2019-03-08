@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  // rightContainer holds all of our posts
-  let rightContainer = $("#rightContainer");
+  // thedeck holds all of our posts
+  let rightContainer = $("#thedeck");
   let leftContainer = $("#leftContainer");
   let cardFilterSelect = $("#filter");
   cardFilterSelect.on("change", handleFilterChange);
@@ -72,7 +72,7 @@ $(document).ready(function () {
     addCardRight($(this).attr("id"));
   });
 
-  $('#rightContainer').on('click', '.dc_cname', function (event) {
+  $('#thedeck').on('click', '.dc_cname', function (event) {
     event.preventDefault();
     removeCardRight($(this).attr("data"));
     console.log('You just clicked me');
