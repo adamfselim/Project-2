@@ -3,7 +3,7 @@
         "username": "root",
         "password": "P4ssw0rd",
         "database": "bestusdeckus",
-        "host": "127.0.0.1",
+        "host": "192.168.1.2",
         "port": 3306,
         "dialect": "mysql"
     },
@@ -16,11 +16,7 @@
         "dialect": "mysql"
     },
     "production": {
-        "username": "",
-        "password": null,
-        "database": "",
-        "host": "127.0.0.1",
-        "port": 3306,
+        "use_env_variable": "JAWSDB_URL",
         "dialect": "mysql"
     }
 }
