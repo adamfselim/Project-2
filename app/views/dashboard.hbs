@@ -1,19 +1,26 @@
 <div id="content" class="page-wrap">
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <div class="form-group">
-          <select class="custom-select" id="filter">
-            <option selected value="">All Categories</option>
-            <option value="W">White</option>
-            <option value="B">Black</option>
-            <option value="U">Blue</option>
-            <option value="R ">Red</option>
-            <option value="G">Green</option>
-          </select>
-        </div>
-      </div>
       <div id="wrap">
+        <div id="left">
+          <div class="container">
+            <div class="row sm">
+              <div class="col-md- my-1" id="search">
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search Cards" aria-label="Search">
+                </form>
+              </div>
+              <div class="btn-toolbar" id="filter">
+                <button class="btn-group btn-primary" value="">All</button>
+                <button class="btn-group btn-success" value="G">Green</button>
+                <button class="btn-group btn-danger" value="R">Red</button>
+                <button class="btn-group btn-dark" value="B">Black</button>
+                <button class="btn-group btn-info" value="U">Blue</button>
+                <button class="btn-group btn-light" value="W">White</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id="leftwrap">
           <div id="leftContainer" tabindex="1" style="overflow:hidden;outline: none;"></div>
         </div>

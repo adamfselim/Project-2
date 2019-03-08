@@ -2,26 +2,20 @@ $(document).ready(function () {
   // thedeck holds all of our posts
   let rightContainer = $("#thedeck");
   let leftContainer = $("#leftContainer");
-  let cardFilterSelect = $("#filter");
-  cardFilterSelect.on("change", handleFilterChange);
   let cards;
   let userCards;
   let cardTemp;
   let cardAdd;
 
   // nicescroll!
-  $(function() {
+  $(function () {
     $("#leftContainer").niceScroll();
   });
-
-  // $("#leftContainer").slideDown(function(){
-  //   $("#leftContainer").getNiceScroll().resize();
-  // });
 
   // Load first deck or create new one if none exists
   function newUserDeckCreate() {
     $.get("/api/check", function (data) {
-      if(!data) {
+      if (!data) {
         console.log("No decks detected, one has been created! " + data);
       } else {
         console.log("Deck exists! " + data);
@@ -48,7 +42,7 @@ $(document).ready(function () {
     $.get("/api/cards/right", function (data) {
       // console.log("Usercards", data);
       userCards = data[0].Usercards;
-      // console.log("Returned Data: " , data[0].Usercards);
+      console.log("Returned Data: ", data[0].Usercards);
       initializeRowsRight();
     });
   }
@@ -57,16 +51,19 @@ $(document).ready(function () {
     $.get("/api/cards/" + card, function (data) {
       cardAdd = JSON.stringify(data);
       console.log("Card to add: " + cardAdd);
-      $.post("/api/cards/add", data);
-      location.reload();
+      $.post("/api/cards/add", data, function () {
+        location.reload();
+      });
     });
   }
 
   function removeCardRight(card) {
-      $.post("/api/cards/remove/" + card);
+    $.post("/api/cards/remove/" + card, function () {
       location.reload();
+    });
   }
 
+// Events!
   $('#leftContainer').on('click', '.dc_card', function (event) {
     event.preventDefault();
     addCardRight($(this).attr("id"));
@@ -75,12 +72,15 @@ $(document).ready(function () {
   $('#thedeck').on('click', '.dc_cname', function (event) {
     event.preventDefault();
     removeCardRight($(this).attr("data"));
-    console.log('You just clicked me');
   });
 
-  newUserDeckCreate();
-  getCardsLeft();
-  getCardsRight();
+  $('#filter').on('click', '.btn-group', function (event) {
+    console.log('button pushed!');
+    // handleFilterChange(event);
+    let newPostCategory = $(this).val();
+    console.log(newPostCategory);
+    getCardsLeft(newPostCategory);
+  });
 
   function initializeRowsLeft() {
     leftContainer.empty();
@@ -95,7 +95,7 @@ $(document).ready(function () {
     rightContainer.empty();
     cardsTemp = [];
     for (let i = 0; i < userCards.length; i++) {
-      cardsTemp.push(createNewRowRight(userCards[i].card_id,userCards[i].card_qnty));
+      cardsTemp.push(createNewRowRight(userCards[i].card_id, userCards[i].card_qnty));
     }
     rightContainer.append(cardsTemp);
   }
@@ -122,7 +122,7 @@ $(document).ready(function () {
   }
 
   // This function constructs a card's HTML
-  function createNewRowRight(post,qnty) {
+  function createNewRowRight(post, qnty) {
     let newCard = $("<div>");
     let newBody = $("<strong>");
 
@@ -136,16 +136,14 @@ $(document).ready(function () {
       cardTemp = data.card_name;
       newBody.text(cardTemp + " " + qnty);
     });
-    console.log(post);
+    // console.log(post);
     newCard.append(newBody);
     // newCard.data("post", post);
     return newCard;
   }
 
-  // This function handles reloading new posts when the filter changes
-  function handleFilterChange() {
-    let newPostCategory = $(this).val();
-    getCardsLeft(newPostCategory);
-  }
+  newUserDeckCreate();
+  getCardsLeft();
+  getCardsRight();
 
 });

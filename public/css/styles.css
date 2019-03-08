@@ -1,5 +1,9 @@
-button.submit {
-    float: right
+#filter {
+	padding-bottom: 10px;
+}
+
+.btn-group {
+	margin: 5px;
 }
    
 .page-wrap {
@@ -31,7 +35,7 @@ button.submit {
   display:inline-block;
   overflow:hidden;
   width:915px;
-  height:800px;
+  height:780px;
   margin-right:5px;
   margin-bottom:5px;
   padding:6px;
@@ -43,7 +47,7 @@ button.submit {
 	position: relative;
 	display: inline-block;
 	width: 220px;
-	height: 800px;
+	height: 780px;
 	margin-bottom: 5px;
 	border-radius: 5px;
 	background-color: rgb(60, 55, 55)
