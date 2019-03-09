@@ -74,12 +74,27 @@ module.exports = function (app, passport) {
       });
   });
 
-  // Get route for returning posts of a specific category
+  // Get route for returning cards of a specific color
   app.get("/api/cards/left/category/:category", function (req, res) {
     db.Mtgcard.findAll({
       where: {
         card_color_identity: req.params.category
       },
+      limit: 1000
+    })
+      .then(function (dbPost) {
+        res.json(dbPost);
+      });
+  });
+
+  // Get route for searching in titles of cards
+  app.get("/api/cards/left/:search", function (req, res) {
+    db.Mtgcard.findAll({
+      where: {
+        card_name: {
+          $like: '%' + req.params.search + '%'
+      }
+    },
       limit: 1000
     })
       .then(function (dbPost) {
@@ -97,6 +112,11 @@ module.exports = function (app, passport) {
       .then(function (dbPost) {
         res.json(dbPost);
       });
+  });
+
+
+  app.get("/api/cards/search", function (req, res) {
+
   });
 
   // Route for updating deck list in user deck

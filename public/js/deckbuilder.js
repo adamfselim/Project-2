@@ -23,20 +23,25 @@ $(document).ready(function () {
     });
   }
 
-  // This function grabs posts from the database and updates the view
+  // This function grabs cards from the database and updates the view
   function getCardsLeft(category) {
     let categoryString = category || "";
     if (categoryString) {
-      // console.log('category changed');
       categoryString = "/category/" + categoryString;
     }
     $.get("/api/cards/left" + categoryString, function (data) {
-      // console.log("Mtgcards", data);
       cards = data;
-      // console.log(cards);
       initializeRowsLeft();
     });
   }
+
+    // This function grabs cards from the database and updates the view
+    function getCardsLeftSearch(search) {
+      $.get("/api/cards/left/" + search, function (data) {
+        cards = data;
+        initializeRowsLeft();
+      });
+    }
 
   function getCardsRight() {
     $.get("/api/cards/right", function (data) {
@@ -62,25 +67,6 @@ $(document).ready(function () {
       location.reload();
     });
   }
-
-// Events!
-  $('#leftContainer').on('click', '.dc_card', function (event) {
-    event.preventDefault();
-    addCardRight($(this).attr("id"));
-  });
-
-  $('#thedeck').on('click', '.dc_cname', function (event) {
-    event.preventDefault();
-    removeCardRight($(this).attr("data"));
-  });
-
-  $('#filter').on('click', '.btn-group', function (event) {
-    console.log('button pushed!');
-    // handleFilterChange(event);
-    let newPostCategory = $(this).val();
-    console.log(newPostCategory);
-    getCardsLeft(newPostCategory);
-  });
 
   function initializeRowsLeft() {
     leftContainer.empty();
@@ -165,6 +151,33 @@ $(document).ready(function () {
     // append(newCC).
     return newDiv;
   }
+
+  // Events listeners!
+  $('#leftContainer').on('click', '.dc_card', function (event) {
+    event.preventDefault();
+    addCardRight($(this).attr("id"));
+  });
+
+  $('#thedeck').on('click', '.dc_cname', function (event) {
+    event.preventDefault();
+    removeCardRight($(this).attr("data"));
+  });
+
+  $('#filter').on('click', '.btn-group', function (event) {
+    console.log('button pushed!');
+    // handleFilterChange(event);
+    let newPostCategory = $(this).val();
+    console.log(newPostCategory);
+    getCardsLeft(newPostCategory);
+  });
+
+  $('.form-inline').submit(function(e) {
+    e.preventDefault();
+    console.log(e);
+    let inputTemp = $('#topSearch').val();
+    console.log(inputTemp);
+    getCardsLeftSearch(inputTemp);
+  });
 
   newUserDeckCreate();
   getCardsLeft();
